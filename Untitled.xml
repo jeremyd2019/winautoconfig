@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <unattend xmlns="urn:schemas-microsoft-com:unattend">
-    <servicing>
-        <package action="install">
-            <assemblyIdentity name="OpenSSH-Server-Package" version="10.0.22000.1" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" />
-            <source location="E:\dist\Packages\OnDemandPack\amd64_OpenSSH-Server-Package_10.0.22000.1_neutral_31bf3856ad364e35_\OpenSSH-Server-Package~31bf3856ad364e35~amd64~~.cab" />
-        </package>
-    </servicing>
     <settings pass="specialize">
         <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <ComputerName>*</ComputerName>
@@ -28,19 +22,24 @@
         <component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <RunSynchronous>
                 <RunSynchronousCommand wcm:action="add">
-                    <Order>1</Order>
+                    <Order>2</Order>
                     <Path>sc config sshd start= auto</Path>
                     <Description>Enable sshd</Description>
                 </RunSynchronousCommand>
                 <RunSynchronousCommand wcm:action="add">
-                    <Order>2</Order>
+                    <Order>3</Order>
                     <Path>powercfg -h off</Path>
                     <Description>Disable hibernation</Description>
                 </RunSynchronousCommand>
                 <RunSynchronousCommand wcm:action="add">
-                    <Order>3</Order>
+                    <Order>4</Order>
                     <Path>reg add HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power /v HiberbootEnabled /t REG_DWORD /d 0 /f</Path>
                     <Description>Turn off Fast Startup</Description>
+                </RunSynchronousCommand>
+                <RunSynchronousCommand wcm:action="add">
+                    <Order>1</Order>
+                    <Description>Install sshd</Description>
+                    <Path>DISM /online /Add-Capability /CapabilityName:OpenSSH.Server~~~~0.0.1.0</Path>
                 </RunSynchronousCommand>
             </RunSynchronous>
         </component>
