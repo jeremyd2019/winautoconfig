@@ -1,0 +1,3 @@
+Go to https://uupdump.net, for the correct build for amd64, go to All
+files, and download openssh-server-package-amd64.cab.  Put it in this
+directory, named OpenSSH-Server-Package~31bf3856ad364e35~amd4~~.cab

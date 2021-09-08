@@ -1,0 +1,5 @@
+Download the latest iso from
+https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/.
+Mount it, and copy all the 'w10/amd64' drivers here.  Ex:
+cd <cdrom>; find . -path '*/w10/amd4/*' -exec cp --parents '{}' <path/to/>winautoconfig/dist/Out-of-Box\ Drivers/amd64/ \;
+
