@@ -19,5 +19,4 @@ Windows Registry Editor Version 5.00
 "SharingWizardOn"=dword:00000000
 "NavPaneExpandToCurrentFolder"=dword:00000001
 "NavPaneShowAllFolders"=dword:00000001
-"DontUsePowerShellOnWinX"=dword:00000001
 
