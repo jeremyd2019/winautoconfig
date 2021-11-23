@@ -128,7 +128,7 @@
         <component name="Microsoft-Windows-PnpCustomizationsNonWinPE" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <DriverPaths>
                 <PathAndCredentials wcm:keyValue="6d1b94f8" wcm:action="add">
-                    <Path>E:\dist\Out-of-Box Drivers\amd64</Path>
+                    <Path>E:\winautoconfig\dist\Out-of-Box Drivers\amd64</Path>
                 </PathAndCredentials>
             </DriverPaths>
         </component>
