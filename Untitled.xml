@@ -41,10 +41,18 @@
                     <Description>Per-User Shell</Description>
                     <Path>reg add &quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\IniFileMapping\system.ini\boot&quot; /v Shell /t REG_SZ /d &quot;USR:Microsoft\Windows NT\CurrentVersion\Winlogon&quot; /f</Path>
                 </RunSynchronousCommand>
+                <RunSynchronousCommand wcm:action="add">
+                    <Order>5</Order>
+                    <Description>Import Machine Policy</Description>
+                    <Path>cmd /c COPY /Y &quot;%SystemRoot%\OEM\CustomizationFiles\reg.pol&quot; &quot;%SystemRoot%\System32\GroupPolicy\Machine\Registry.pol&quot;</Path>
+                </RunSynchronousCommand>
             </RunSynchronous>
         </component>
         <component name="Microsoft-Windows-powercpl" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <PreferredPlan>8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c</PreferredPlan>
+        </component>
+        <component name="Security-Malware-Windows-Defender" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <DisableAntiSpyware>true</DisableAntiSpyware>
         </component>
     </settings>
     <settings pass="oobeSystem">
