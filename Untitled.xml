@@ -42,14 +42,19 @@
                     <Path>reg add &quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\IniFileMapping\system.ini\boot&quot; /v Shell /t REG_SZ /d &quot;USR:Microsoft\Windows NT\CurrentVersion\Winlogon&quot; /f</Path>
                 </RunSynchronousCommand>
                 <RunSynchronousCommand wcm:action="add">
-                    <Order>5</Order>
+                    <Order>6</Order>
                     <Description>Import Machine Policy</Description>
-                    <Path>cmd /c COPY /Y &quot;%SystemRoot%\OEM\CustomizationFiles\reg.pol&quot; &quot;%SystemRoot%\System32\GroupPolicy\Machine\Registry.pol&quot;</Path>
+                    <Path>cmd /S /C &quot;CD /D &quot;%SystemRoot%\System32\GroupPolicy\&quot;&amp;MKDIR Machine&amp;COPY /Y &quot;%SystemRoot%\OEM\CustomizationFiles\GPT.INI&quot; GPT.INI&amp;COPY /Y &quot;%SystemRoot%\OEM\CustomizationFiles\reg.pol&quot; Machine\Registry.pol&amp;gpupdate /force&quot;</Path>
                 </RunSynchronousCommand>
                 <RunSynchronousCommand wcm:action="add">
-                    <Order>6</Order>
+                    <Order>7</Order>
                     <Description>Set default net metered</Description>
                     <Path>CMD /S /C &quot;FOR %i IN (Default Ethernet WiFi) DO reg add &quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\DefaultMediaCost&quot; /v %i /t REG_DWORD /d 2 /f&quot;</Path>
+                </RunSynchronousCommand>
+                <RunSynchronousCommand wcm:action="add">
+                    <Order>5</Order>
+                    <Description>Disable Tamper Protection</Description>
+                    <Path>reg add &quot;HKLM\SOFTWARE\Microsoft\Windows Defender\Features&quot; /v TamperProtection /t REG_DWORD /d 0 /f</Path>
                 </RunSynchronousCommand>
             </RunSynchronous>
         </component>
