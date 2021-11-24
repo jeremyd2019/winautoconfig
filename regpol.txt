@@ -1,6 +1,11 @@
 ; ----------------------------------------------------------------------
 ; PARSING Computer POLICY
-; Source file:  gpoback\{BDDC1EF2-9756-4D88-83BD-F8C32EC55114}\DomainSysvol\GPO\Machine\registry.pol
+; Source file:  gpoback\{12F28B1E-8021-4266-A9BE-2FCF7736EA76}\DomainSysvol\GPO\Machine\registry.pol
+
+Computer
+Software\Microsoft\OneDrive
+PreventNetworkTrafficPreUserSignIn
+DWORD:1
 
 Computer
 Software\Policies\Microsoft\Windows\WindowsUpdate\AU
@@ -81,6 +86,11 @@ Computer
 Software\Policies\Microsoft\Windows Defender\Real-Time Protection
 DisableOnAccessProtection
 DWORD:1
+
+Computer
+Software\Policies\Microsoft\WindowsStore
+AutoDownload
+DWORD:2
 
 ; PARSING COMPLETED.
 ; ----------------------------------------------------------------------
