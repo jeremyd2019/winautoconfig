@@ -1,0 +1,23 @@
+[Setup]
+Lang=default
+Dir=C:\Program Files\Git
+Group=Git
+NoIcons=0
+SetupType=default
+Components=gitlfs,windowsterminal
+Tasks=
+EditorOption=VIM
+CustomEditorPath=
+DefaultBranchOption= 
+PathOption=Cmd
+SSHOption=OpenSSH
+TortoiseOption=false
+CURLOption=WinSSL
+CRLFOption=CRLFAlways
+BashTerminalOption=ConHost
+GitPullBehaviorOption=FFOnly
+UseCredentialManager=Core
+PerformanceTweaksFSCache=Enabled
+EnableSymlinks=Disabled
+EnablePseudoConsoleSupport=Disabled
+EnableFSMonitor=Disabled
