@@ -8,6 +8,26 @@ PreventNetworkTrafficPreUserSignIn
 DWORD:1
 
 Computer
+Software\Policies\Microsoft\Windows\CloudContent
+DisableCloudOptimizedContent
+DWORD:1
+
+Computer
+Software\Policies\Microsoft\Windows\CloudContent
+DisableSoftLanding
+DWORD:1
+
+Computer
+Software\Policies\Microsoft\Windows\CloudContent
+DisableWindowsConsumerFeatures
+DWORD:1
+
+Computer
+Software\Policies\Microsoft\Windows\OneDrive
+DisableFileSyncNGSC
+DWORD:1
+
+Computer
 Software\Policies\Microsoft\Windows\WindowsUpdate\AU
 NoAutoUpdate
 DWORD:0
@@ -73,6 +93,26 @@ DisableRoutinelyTakingAction
 DWORD:1
 
 Computer
+Software\Policies\Microsoft\Windows Defender\Exclusions
+Exclusions_Paths
+DWORD:1
+
+Computer
+Software\Policies\Microsoft\Windows Defender\Exclusions\Paths
+C:\
+SZ:0
+
+Computer
+Software\Policies\Microsoft\Windows Defender\Exclusions\Paths
+D:\
+SZ:0
+
+Computer
+Software\Policies\Microsoft\Windows Defender\Exclusions\Paths
+E:\
+SZ:0
+
+Computer
 Software\Policies\Microsoft\Windows Defender\Real-Time Protection
 DisableRealtimeMonitoring
 DWORD:1
@@ -86,6 +126,26 @@ Computer
 Software\Policies\Microsoft\Windows Defender\Real-Time Protection
 DisableOnAccessProtection
 DWORD:1
+
+Computer
+Software\Policies\Microsoft\Windows Defender\Scan
+AvgCPULoadFactor
+DWORD:5
+
+Computer
+Software\Policies\Microsoft\Windows Defender\Signature Updates
+FallbackOrder
+SZ:FileShares
+
+Computer
+Software\Policies\Microsoft\Windows Defender\Spynet
+SpynetReporting
+DWORD:0
+
+Computer
+Software\Policies\Microsoft\Windows Defender\Spynet
+SubmitSamplesConsent
+DWORD:2
 
 Computer
 Software\Policies\Microsoft\WindowsStore
