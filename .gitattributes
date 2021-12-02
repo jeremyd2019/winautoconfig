@@ -1,5 +1,6 @@
-*.reg	text working-tree-encoding=UTF-16LE-BOM eol=CRLF
-*.cmd	text eol=CRLF
-*.cmd.in	text eol=CRLF
-*.inf	text eol=CRLF
-*.INI	text eol=CRLF
+*	text=auto
+*.reg	text working-tree-encoding=UTF-16LE-BOM eol=crlf
+*.cmd	text eol=crlf
+*.cmd.in	text eol=crlf
+*.inf	text eol=crlf
+*.INI	text eol=crlf
