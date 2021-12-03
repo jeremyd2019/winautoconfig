@@ -22,7 +22,7 @@ curl -Lo msys2-base-x86_64.sfx.exe "https://github.com/msys2/msys2-installer/rel
 "%TEMP%\msys2-base-x86_64.sfx.exe" -y -oC:\
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "/usr/bin/sed -i -e 's/^\(SigLevel\s\+=\s\+Required\)\s*$/\1 DatabaseNever/' /etc/pacman.conf"
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "pacman --noconfirm --overwrite '*' -Syuu && true"
-CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "mv -f /etc/pacman.conf.pacnew /etc/pacman.conf && sed -i -e 's/^\(SigLevel\s\+=\s\+Required\)\s*$/\1 DatabaseNever/' /etc/pacman.conf"
+CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "mv -f /etc/pacman.conf.pacnew /etc/pacman.conf; sed -i -e 's/^\(SigLevel\s\+=\s\+Required\)\s*$/\1 DatabaseNever/' /etc/pacman.conf"
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "pacman --noconfirm --overwrite '*' -Suu"
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "sed -i -e '/\[msys\]/i [clang32]\nInclude = /etc/pacman.d/mirrorlist.mingw\n\n[clangarm64]\nInclude = /etc/pacman.d/mirrorlist.mingw\n' /etc/pacman.conf"
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "pacman --noconfirm --overwrite '*' -Sy --needed base-devel git mingw-w64-clang-aarch64-toolchain procps-ng psmisc zip unzip etc-update"
