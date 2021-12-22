@@ -123,6 +123,11 @@
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <Order>8</Order>
+                    <Description>Ensure apps are installed</Description>
+                    <CommandLine>powershell -ExecutionPolicy Bypass -Command &quot;Get-AppXPackage | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register &quot;$($_.InstallLocation)\AppXManifest.xml&quot;}&quot;</CommandLine>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <Order>9</Order>
                     <Description>Run external setup script(s)</Description>
                     <CommandLine>CMD /C &quot;%SystemRoot%\OEM\CustomizationFiles\call_setup.cmd&quot;</CommandLine>
                 </SynchronousCommand>
