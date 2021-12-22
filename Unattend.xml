@@ -124,7 +124,7 @@
                 <SynchronousCommand wcm:action="add">
                     <Order>8</Order>
                     <Description>Ensure apps are installed</Description>
-                    <CommandLine>powershell -ExecutionPolicy Bypass -Command &quot;Get-AppXPackage | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register &quot;$($_.InstallLocation)\AppXManifest.xml&quot;}&quot;</CommandLine>
+                    <CommandLine>powershell -ExecutionPolicy Bypass -Command &quot;Get-AppXPackage | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register &quot;&quot;&quot;&quot;$($_.InstallLocation)\AppXManifest.xml&quot;&quot;&quot;&quot;}&quot;</CommandLine>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <Order>9</Order>
