@@ -52,11 +52,6 @@
                     <Description>Set default net metered</Description>
                     <Path>CMD /S /C &quot;FOR %i IN (Default Ethernet WiFi) DO reg add &quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\DefaultMediaCost&quot; /v %i /t REG_DWORD /d 2 /f&quot;</Path>
                 </RunSynchronousCommand>
-                <RunSynchronousCommand wcm:action="add">
-                    <Order>5</Order>
-                    <Description>Disable Tamper Protection</Description>
-                    <Path>reg add &quot;HKLM\SOFTWARE\Microsoft\Windows Defender\Features&quot; /v TamperProtection /t REG_DWORD /d 0 /f</Path>
-                </RunSynchronousCommand>
             </RunSynchronous>
         </component>
         <component name="Microsoft-Windows-powercpl" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -102,14 +97,14 @@
                     <Description>Import powershell settings</Description>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
-                    <Order>4</Order>
-                    <CommandLine>cmd /c COPY /Y &quot;%SystemRoot%\OEM\CustomizationFiles\settings.json&quot; &quot;%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState&quot;</CommandLine>
-                    <Description>Copy Windows Terminal settings</Description>
-                </SynchronousCommand>
-                <SynchronousCommand wcm:action="add">
                     <Order>3</Order>
                     <CommandLine>cmd /c mkdir &quot;%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState&quot;</CommandLine>
                     <Description>Make Windows Terminal settings dir</Description>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <Order>4</Order>
+                    <CommandLine>cmd /c COPY /Y &quot;%SystemRoot%\OEM\CustomizationFiles\settings.json&quot; &quot;%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState&quot;</CommandLine>
+                    <Description>Copy Windows Terminal settings</Description>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <Order>5</Order>
