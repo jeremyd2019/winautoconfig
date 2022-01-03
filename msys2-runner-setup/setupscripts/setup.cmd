@@ -18,7 +18,13 @@ DISM /Online /Add-ProvisionedAppxPackage /PackagePath:%MSIX% /LicensePath:%LIC%
 curl -Lo git64.exe "https://github.com/git-for-windows/git/releases/download/%GITTAGVERSION%/Git-%GITVERSION%-64-bit.exe"
 START /wait git64.exe /VERYSILENT /NORESTART /NOCANCEL /SP- /CLOSEAPPLICATIONS /RESTARTAPPLICATIONS /LOADINF="%MYDIR%\git64.inf"
 
-curl -Lo msys2-base-x86_64.sfx.exe "https://github.com/msys2/msys2-installer/releases/download/%MSYS2VERSION%/msys2-base-x86_64-%MSYS2VERSION:-=%.sfx.exe"
+SET MSYS2URL=https://github.com/msys2/msys2-installer/releases/download
+IF [%MSYS2VERSION%]==[nightly] (
+	SET MSYS2URL=%MSYS2URL%/nightly-x86_64/msys2-base-x86_64-latest.sfx.exe
+) ELSE (
+	SET MSYS2URL=%MSYS2URL%/%MSYS2VERSION%/msys2-base-x86_64-%MSYS2VERSION:-=%.sfx.exe
+)
+curl -Lo msys2-base-x86_64.sfx.exe "%MSYS2URL%"
 "%TEMP%\msys2-base-x86_64.sfx.exe" -y -oC:\
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "/usr/bin/sed -i -e 's/^\(SigLevel\s\+=\s\+Required\)\s*$/\1 DatabaseNever/' /etc/pacman.conf"
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "pacman --noconfirm --overwrite '*' -Syuu && true"
