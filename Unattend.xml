@@ -39,6 +39,11 @@
                 </RunSynchronousCommand>
                 <RunSynchronousCommand wcm:action="add">
                     <Order>4</Order>
+                    <Path>powercfg /change standby-timeout-ac 0</Path>
+                    <Description>Disable sleep timeout</Description>
+                </RunSynchronousCommand>
+                <RunSynchronousCommand wcm:action="add">
+                    <Order>5</Order>
                     <Description>Per-User Shell</Description>
                     <Path>reg add &quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\IniFileMapping\system.ini\boot&quot; /v Shell /t REG_SZ /d &quot;USR:Microsoft\Windows NT\CurrentVersion\Winlogon&quot; /f</Path>
                 </RunSynchronousCommand>
