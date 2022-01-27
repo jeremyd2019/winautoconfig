@@ -1,0 +1,27 @@
+#cloud-config
+packages:
+ - qemu-system-arm
+ - mdadm
+ - wimtools
+ - mtools
+ - cabextract
+ - ntfs-3g
+ - unzip
+ - aria2
+ - python3-github
+ - python3-nacl
+ - python3-venv
+ - git
+
+mounts:
+ - [ xvdf, /mnt, auto, "defaults" ]
+
+runcmd:
+ - usermod -a -G kvm,disk admin
+ - sed -i -e 's/^# \(en_US\)/\1/' /etc/locale.gen
+ - locale-gen
+ - mdadm --create --level=0 --raid-devices=2 /dev/md0 /dev/nvme2n1 /dev/nvme3n1
+ - mke2fs -T ext4 -m 0 /dev/md0
+ - mkdir /ephemeral
+ - mount /dev/md0 /ephemeral
+ - chown admin /ephemeral

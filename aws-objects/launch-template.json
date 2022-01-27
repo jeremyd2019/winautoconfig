@@ -1,0 +1,94 @@
+{
+    "LaunchTemplateVersions": [
+        {
+            "LaunchTemplateId": "lt-XXXXX",
+            "LaunchTemplateName": "aarch64qemu",
+            "VersionNumber": 21,
+            "VersionDescription": "update base Windows snapshot",
+            "CreateTime": "2022-01-18T04:46:48+00:00",
+            "CreatedBy": "arn:aws:iam::XXXXX:root",
+            "DefaultVersion": true,
+            "LaunchTemplateData": {
+                "EbsOptimized": false,
+                "BlockDeviceMappings": [
+                    {
+                        "DeviceName": "/dev/xvda",
+                        "Ebs": {
+                            "Encrypted": false,
+                            "DeleteOnTermination": true,
+                            "SnapshotId": "snap-03ae18af27c31c40d",
+                            "VolumeSize": 8,
+                            "VolumeType": "gp3"
+                        }
+                    },
+                    {
+                        "DeviceName": "/dev/xvdf",
+                        "Ebs": {
+                            "SnapshotId": "snap-XXXXX",
+                            "VolumeType": "gp3"
+                        }
+                    }
+                ],
+                "NetworkInterfaces": [
+                    {
+                        "AssociatePublicIpAddress": true,
+                        "DeviceIndex": 0,
+                        "Groups": [
+                            "sg-XXXXX"
+                        ]
+                    }
+                ],
+                "ImageId": "ami-097509fe942c2d607",
+                "InstanceType": "c6gd.metal",
+                "KeyName": "yubikey",
+                "InstanceInitiatedShutdownBehavior": "stop",
+                "UserData": "I2Nsb3VkLWNvbmZpZwpwYWNrYWdlczoKIC0gcWVtdS1zeXN0ZW0tYXJtCiAtIG1kYWRtCiAtIHdpbXRvb2xzCiAtIG10b29scwogLSBjYWJleHRyYWN0CiAtIG50ZnMtM2cKIC0gdW56aXAKIC0gYXJpYTIKIC0gcHl0aG9uMy1naXRodWIKIC0gcHl0aG9uMy1uYWNsCiAtIHB5dGhvbjMtdmVudgogLSBnaXQKCm1vdW50czoKIC0gWyB4dmRmLCAvbW50LCBhdXRvLCAiZGVmYXVsdHMiIF0KCnJ1bmNtZDoKIC0gdXNlcm1vZCAtYSAtRyBrdm0sZGlzayBhZG1pbgogLSBzZWQgLWkgLWUgJ3MvXiMgXChlbl9VU1wpL1wxLycgL2V0Yy9sb2NhbGUuZ2VuCiAtIGxvY2FsZS1nZW4KIC0gbWRhZG0gLS1jcmVhdGUgLS1sZXZlbD0wIC0tcmFpZC1kZXZpY2VzPTIgL2Rldi9tZDAgL2Rldi9udm1lMm4xIC9kZXYvbnZtZTNuMQogLSBta2UyZnMgLVQgZXh0NCAtbSAwIC9kZXYvbWQwCiAtIG1rZGlyIC9lcGhlbWVyYWwKIC0gbW91bnQgL2Rldi9tZDAgL2VwaGVtZXJhbAogLSBjaG93biBhZG1pbiAvZXBoZW1lcmFs",
+                "TagSpecifications": [
+                    {
+                        "ResourceType": "instance",
+                        "Tags": [
+                            {
+                                "Key": "Name",
+                                "Value": "aarch64qemu"
+                            }
+                        ]
+                    },
+                    {
+                        "ResourceType": "volume",
+                        "Tags": [
+                            {
+                                "Key": "Name",
+                                "Value": "aarch64qemu"
+                            }
+                        ]
+                    },
+                    {
+                        "ResourceType": "spot-instances-request",
+                        "Tags": [
+                            {
+                                "Key": "Name",
+                                "Value": "aarch64qemu"
+                            }
+                        ]
+                    },
+                    {
+                        "ResourceType": "network-interface",
+                        "Tags": [
+                            {
+                                "Key": "Name",
+                                "Value": "aarch64qemu"
+                            }
+                        ]
+                    }
+                ],
+                "InstanceMarketOptions": {
+                    "MarketType": "spot",
+                    "SpotOptions": {
+                        "SpotInstanceType": "persistent",
+                        "InstanceInterruptionBehavior": "stop"
+                    }
+                }
+            }
+        }
+    ]
+}
