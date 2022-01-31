@@ -3,9 +3,9 @@
         {
             "LaunchTemplateId": "lt-XXXXX",
             "LaunchTemplateName": "aarch64qemu",
-            "VersionNumber": 21,
-            "VersionDescription": "update base Windows snapshot",
-            "CreateTime": "2022-01-18T04:46:48+00:00",
+            "VersionNumber": 22,
+            "VersionDescription": "update debian image",
+            "CreateTime": "2022-01-31T23:49:09+00:00",
             "CreatedBy": "arn:aws:iam::XXXXX:root",
             "DefaultVersion": true,
             "LaunchTemplateData": {
@@ -16,7 +16,8 @@
                         "Ebs": {
                             "Encrypted": false,
                             "DeleteOnTermination": true,
-                            "SnapshotId": "snap-03ae18af27c31c40d",
+                            "Iops": 3000,
+                            "SnapshotId": "snap-092fcd92cdad64af1",
                             "VolumeSize": 8,
                             "VolumeType": "gp3"
                         }
@@ -38,7 +39,7 @@
                         ]
                     }
                 ],
-                "ImageId": "ami-097509fe942c2d607",
+                "ImageId": "ami-0fd1d3db6054b3cc9",
                 "InstanceType": "c6gd.metal",
                 "KeyName": "yubikey",
                 "InstanceInitiatedShutdownBehavior": "stop",
