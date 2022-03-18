@@ -3,9 +3,9 @@
         {
             "LaunchTemplateId": "lt-XXXXX",
             "LaunchTemplateName": "aarch64qemu",
-            "VersionNumber": 23,
+            "VersionNumber": 24,
             "VersionDescription": "update debian image",
-            "CreateTime": "2022-03-10T04:48:13+00:00",
+            "CreateTime": "2022-03-14T23:12:39+00:00",
             "CreatedBy": "arn:aws:iam::XXXXX:root",
             "DefaultVersion": true,
             "LaunchTemplateData": {
@@ -16,7 +16,7 @@
                         "Ebs": {
                             "Encrypted": false,
                             "DeleteOnTermination": true,
-                            "SnapshotId": "snap-075cecc5f48d587b3",
+                            "SnapshotId": "snap-0f52ca371da91cfce",
                             "VolumeSize": 8,
                             "VolumeType": "gp3"
                         }
@@ -38,7 +38,7 @@
                         ]
                     }
                 ],
-                "ImageId": "ami-049ad7aec11db712c",
+                "ImageId": "ami-01738171ea71d2173",
                 "InstanceType": "c6gd.metal",
                 "KeyName": "yubikey",
                 "InstanceInitiatedShutdownBehavior": "stop",
