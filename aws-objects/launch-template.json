@@ -3,9 +3,9 @@
         {
             "LaunchTemplateId": "lt-XXXXX",
             "LaunchTemplateName": "aarch64qemu",
-            "VersionNumber": 24,
-            "VersionDescription": "update debian image",
-            "CreateTime": "2022-03-14T23:12:39+00:00",
+            "VersionNumber": 25,
+            "VersionDescription": "set IOPS for GP3 volumes",
+            "CreateTime": "2022-03-20T02:13:06+00:00",
             "CreatedBy": "arn:aws:iam::XXXXX:root",
             "DefaultVersion": true,
             "LaunchTemplateData": {
@@ -16,6 +16,7 @@
                         "Ebs": {
                             "Encrypted": false,
                             "DeleteOnTermination": true,
+                            "Iops": 3000,
                             "SnapshotId": "snap-0f52ca371da91cfce",
                             "VolumeSize": 8,
                             "VolumeType": "gp3"
@@ -24,6 +25,7 @@
                     {
                         "DeviceName": "/dev/xvdf",
                         "Ebs": {
+                            "Iops": 3000,
                             "SnapshotId": "snap-XXXXX",
                             "VolumeType": "gp3"
                         }
