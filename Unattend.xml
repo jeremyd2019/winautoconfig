@@ -50,7 +50,7 @@
                 <RunSynchronousCommand wcm:action="add">
                     <Order>6</Order>
                     <Description>Import Machine Policy</Description>
-                    <Path>cmd /S /C &quot;CD /D &quot;%SystemRoot%\System32\GroupPolicy\&quot;&amp;MKDIR Machine&amp;COPY /Y &quot;%SystemRoot%\OEM\CustomizationFiles\GPT.INI&quot; GPT.INI&amp;COPY /Y &quot;%SystemRoot%\OEM\CustomizationFiles\reg.pol&quot; Machine\Registry.pol&amp;gpupdate /force&quot;</Path>
+                    <Path>cmd /S /C &quot;CD /D &quot;%SystemRoot%\System32\GroupPolicy\&quot;&amp;MKDIR Machine&amp;COPY /Y &quot;%SystemRoot%\OEM\CustomizationFiles\GPT.INI&quot; GPT.INI&amp;COPY /Y &quot;%SystemRoot%\OEM\CustomizationFiles\reg.pol&quot; Machine\Registry.pol&quot;</Path>
                 </RunSynchronousCommand>
                 <RunSynchronousCommand wcm:action="add">
                     <Order>7</Order>
