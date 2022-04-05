@@ -103,36 +103,41 @@
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <Order>3</Order>
+                    <CommandLine>reg import &quot;%systemroot%\OEM\CustomizationFiles\taskmanager_settings.reg&quot;</CommandLine>
+                    <Description>Import task manager settings</Description>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <Order>4</Order>
                     <CommandLine>cmd /c mkdir &quot;%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState&quot;</CommandLine>
                     <Description>Make Windows Terminal settings dir</Description>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
-                    <Order>4</Order>
+                    <Order>5</Order>
                     <CommandLine>cmd /c COPY /Y &quot;%SystemRoot%\OEM\CustomizationFiles\settings.json&quot; &quot;%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState&quot;</CommandLine>
                     <Description>Copy Windows Terminal settings</Description>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
-                    <Order>5</Order>
+                    <Order>6</Order>
                     <Description>Install sshd</Description>
                     <CommandLine>DISM /online /Add-Capability /CapabilityName:OpenSSH.Server~~~~0.0.1.0</CommandLine>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
-                    <Order>6</Order>
+                    <Order>7</Order>
                     <Description>Enable sshd</Description>
                     <CommandLine>sc config sshd start= auto</CommandLine>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
-                    <Order>7</Order>
+                    <Order>8</Order>
                     <Description>Start sshd</Description>
                     <CommandLine>sc start sshd</CommandLine>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
-                    <Order>8</Order>
+                    <Order>9</Order>
                     <Description>Ensure apps are installed</Description>
                     <CommandLine>powershell -ExecutionPolicy Bypass -Command &quot;Get-AppXPackage | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register &quot;&quot;&quot;&quot;$($_.InstallLocation)\AppXManifest.xml&quot;&quot;&quot;&quot;}&quot;</CommandLine>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
-                    <Order>9</Order>
+                    <Order>10</Order>
                     <Description>Run external setup script(s)</Description>
                     <CommandLine>CMD /C &quot;%SystemRoot%\OEM\CustomizationFiles\call_setup.cmd&quot;</CommandLine>
                 </SynchronousCommand>
