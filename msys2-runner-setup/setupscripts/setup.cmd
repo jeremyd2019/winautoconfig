@@ -8,12 +8,10 @@ CALL :parsegitver
 
 CD /D "%TEMP%"
 
-curl -Lo terminal-preinstall.zip https://github.com/microsoft/terminal/releases/download/v%WINTERMVERSION%/Microsoft.WindowsTerminal_%WINTERMVERSION%_8wekyb3d8bbwe.msixbundle_Windows10_PreinstallKit.zip
+curl -Lo terminal-preinstall.zip https://github.com/microsoft/terminal/releases/download/v%WINTERMVERSION%/Microsoft.WindowsTerminal_Win10_%WINTERMVERSION%_8wekyb3d8bbwe.msixbundle_Windows10_PreinstallKit.zip
 MKDIR term
 tar -C term -xvf terminal-preinstall.zip
-FOR %%i IN (term\*.msixbundle) DO SET MSIX=%%i
-FOR %%i IN (term\*_License1.xml) DO SET LIC=%%i
-DISM /Online /Add-ProvisionedAppxPackage /PackagePath:%MSIX% /LicensePath:%LIC%
+CALL :installterminal
 
 curl -Lo git64.exe "https://github.com/git-for-windows/git/releases/download/%GITTAGVERSION%/Git-%GITVERSION%-64-bit.exe"
 START /wait git64.exe /VERYSILENT /NORESTART /NOCANCEL /SP- /CLOSEAPPLICATIONS /RESTARTAPPLICATIONS /LOADINF="%MYDIR%\git64.inf"
@@ -69,5 +67,18 @@ FOR %%v IN (%GITVERSION:.= %) DO (
 )
 IF %_count% LEQ 4 SET GITTAGVERSION=%GITTAGVERSION%.windows.1
 ENDLOCAL & SET GITTAGVERSION=%GITTAGVERSION%
+GOTO :eof
+
+:installterminal
+SETLOCAL EnableDelayedExpansion
+
+FOR %%i IN (term\*.msixbundle) DO SET MSIX=%%i
+FOR %%i IN (term\*_License1.xml) DO SET LIC=%%i
+SET DEPS=
+FOR %%i in (term\*.appx) DO SET DEPS=!DEPS! /DependencyPackagePath:%%i
+
+DISM /Online /Add-ProvisionedAppxPackage /PackagePath:%MSIX% /LicensePath:%LIC% %DEPS%
+
+ENDLOCAL
 GOTO :eof
 
