@@ -43,7 +43,7 @@ curl -Lo actions-runner-arm64.zip "https://github.com/jeremyd2019/runner/release
 MKDIR C:\runner
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -here -c "unzip -o actions-runner-arm64.zip -d /c/runner"
 CD /D C:\runner
-CALL config.cmd --unattended --url %RUNNERREGURL% --token %RUNNERREGTOKEN% --replace --disableupdate --ephemeral
+CALL config.cmd --unattended --url %RUNNERREGURL% --token %RUNNERREGTOKEN% --replace --disableupdate --ephemeral --labels "%RUNNERLABELS%"
 
 COPY /Y "%MYDIR%\shell.cmd" "%USERPROFILE%\shell.cmd"
 REG ADD "HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon" /v Shell /t REG_SZ /d "%USERPROFILE%\shell.cmd" /f
