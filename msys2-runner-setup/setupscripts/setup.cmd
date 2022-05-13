@@ -32,7 +32,7 @@ CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "mv -f /etc/pacman.conf.pac
 REM the caret is messing with CMD parsing, try it another way
 C:\msys64\usr\bin\sed.exe -i -e 's/^^\(SigLevel\s\+=\s\+Required\)\s*$/\1 DatabaseNever/' /etc/pacman.conf
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "pacman --noconfirm --overwrite '*' -Suu"
-CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "sed -i -e '/\[msys\]/i [clang32]\nInclude = /etc/pacman.d/mirrorlist.mingw\n\n[clangarm64]\nInclude = /etc/pacman.d/mirrorlist.mingw\n' /etc/pacman.conf"
+CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "sed -i -e '/\[msys\]/i [clangarm64]\nInclude = /etc/pacman.d/mirrorlist.mingw\n' /etc/pacman.conf"
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "pacman --noconfirm --overwrite '*' -Sy --needed base-devel git mingw-w64-clang-aarch64-toolchain procps-ng psmisc zip unzip vim etc-update"
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "pacman --noconfirm -Scc"
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "echo export EDITOR=vim >> ~/.bash_profile"
