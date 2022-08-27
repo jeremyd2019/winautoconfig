@@ -35,7 +35,7 @@ REM the caret is messing with CMD parsing, try it another way
 C:\msys64\usr\bin\sed.exe -i -e 's/^^\(SigLevel\s\+=\s\+Required\)\s*$/\1 DatabaseNever/' /etc/pacman.conf
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "pacman --noconfirm --overwrite '*' -Suu"
 REM the caret is messing with CMD parsing, try it another way
-C:\msys64\usr\bin\sed.exe -i -e '/^^# \[clangarm64\]/,/^^$/ s|^^# ||g' /etc/pacman.conf
+C:\msys64\usr\bin\sed.exe -i -e '/^^# \[clangarm64\]/,/^^$/ s/^^# //g' /etc/pacman.conf
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "pacman --noconfirm --overwrite '*' -Sy --needed base-devel git mingw-w64-clang-aarch64-toolchain procps-ng psmisc zip unzip vim etc-update"
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "pacman --noconfirm -Scc"
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "echo export EDITOR=vim >> ~/.bash_profile"
