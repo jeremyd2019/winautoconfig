@@ -1,5 +1,5 @@
 Download the latest iso from
 https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/.
-Mount it, and copy all the 'w10/ARM64' drivers here.  Ex:
-cd <cdrom>; find . -path '*/w10/ARM64/*' -exec cp --parents '{}' <path/to/>winautoconfig/dist/Out-of-Box\ Drivers/arm64/ \;
+Mount it, and copy all the 'w11/ARM64' drivers here.  Ex:
+cd <cdrom>; find . -path '*/w11/ARM64/*' -exec cp --parents '{}' <path/to/>winautoconfig/dist/Out-of-Box\ Drivers/arm64/ \;
 
