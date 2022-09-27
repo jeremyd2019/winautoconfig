@@ -40,7 +40,7 @@ CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "pacman --noconfirm --overw
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "pacman --noconfirm -Scc"
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "echo export EDITOR=vim >> ~/.bash_profile"
 
-curl -Lo actions-runner-arm64.zip "https://github.com/jeremyd2019/runner/releases/download/v%RUNNERVERSION%/actions-runner-win-arm64-%RUNNERVERSION%.zip"
+curl -Lo actions-runner-arm64.zip "https://github.com/actions/runner/releases/download/v%RUNNERVERSION%/actions-runner-win-arm64-%RUNNERVERSION%.zip"
 MKDIR C:\runner
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -here -c "unzip -o actions-runner-arm64.zip -d /c/runner"
 CD /D C:\runner
