@@ -3,9 +3,9 @@
         {
             "LaunchTemplateId": "lt-XXXXX",
             "LaunchTemplateName": "aarch64qemu",
-            "VersionNumber": 25,
-            "VersionDescription": "set IOPS for GP3 volumes",
-            "CreateTime": "2022-03-20T02:13:06+00:00",
+            "VersionNumber": 28,
+            "VersionDescription": "Update debian AMI",
+            "CreateTime": "2022-09-28T20:12:17+00:00",
             "CreatedBy": "arn:aws:iam::XXXXX:root",
             "DefaultVersion": true,
             "LaunchTemplateData": {
@@ -17,9 +17,10 @@
                             "Encrypted": false,
                             "DeleteOnTermination": true,
                             "Iops": 3000,
-                            "SnapshotId": "snap-0f52ca371da91cfce",
+                            "SnapshotId": "snap-024cf5e85675c9a47",
                             "VolumeSize": 8,
-                            "VolumeType": "gp3"
+                            "VolumeType": "gp3",
+                            "Throughput": 125
                         }
                     },
                     {
@@ -27,7 +28,8 @@
                         "Ebs": {
                             "Iops": 3000,
                             "SnapshotId": "snap-XXXXX",
-                            "VolumeType": "gp3"
+                            "VolumeType": "gp3",
+                            "Throughput": 125
                         }
                     }
                 ],
@@ -40,7 +42,7 @@
                         ]
                     }
                 ],
-                "ImageId": "ami-01738171ea71d2173",
+                "ImageId": "ami-06d00b09d00fd6fa9",
                 "InstanceType": "c6gd.metal",
                 "KeyName": "yubikey",
                 "InstanceInitiatedShutdownBehavior": "stop",
