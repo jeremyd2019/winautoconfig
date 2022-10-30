@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:regexp="http://exslt.org/regular-expressions" xmlns:u="urn:schemas-microsoft-com:unattend">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:u="urn:schemas-microsoft-com:unattend">
     <xsl:output method="text" omit-xml-declaration="yes" indent="no"/>
 
     <!-- from https://www.oreilly.com/library/view/xslt-cookbook/0596003722/ch01s07.html -->
