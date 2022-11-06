@@ -52,12 +52,12 @@
                 <xsl:with-param name="search-string">%i</xsl:with-param>
                 <xsl:with-param name="replace-string">%%i</xsl:with-param>
             </xsl:call-template>
-            <xsl:text>&#xA;</xsl:text>
+            <xsl:text>&#xD;&#xA;</xsl:text>
         </xsl:for-each>
         <xsl:for-each select="u:settings[@pass='oobeSystem']/u:component[@name='Microsoft-Windows-Shell-Setup']/u:FirstLogonCommands/u:SynchronousCommand">
             <xsl:sort select="u:Order" data-type="number" />
             <xsl:value-of select="u:CommandLine" />
-            <xsl:text>&#xA;</xsl:text>
+            <xsl:text>&#xD;&#xA;</xsl:text>
         </xsl:for-each>
     </xsl:template>
 </xsl:stylesheet>
