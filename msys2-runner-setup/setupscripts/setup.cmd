@@ -8,7 +8,7 @@ CALL :parsegitver
 
 CD /D "%TEMP%"
 
-curl -Lo terminal-preinstall.zip https://github.com/microsoft/terminal/releases/download/v%WINTERMVERSION%/Microsoft.WindowsTerminal_Win10_%WINTERMVERSION%_8wekyb3d8bbwe.msixbundle_Windows10_PreinstallKit.zip
+curl -Lo terminal-preinstall.zip https://github.com/microsoft/terminal/releases/download/v%WINTERMVERSION%/Microsoft.WindowsTerminal_%WINTERMVERSION%_8wekyb3d8bbwe.msixbundle_Windows10_PreinstallKit.zip
 MKDIR term
 tar -C term -xvf terminal-preinstall.zip
 CALL :installterminal
