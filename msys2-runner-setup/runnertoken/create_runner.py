@@ -30,7 +30,8 @@ def get_org_installation(self, org):
     response_dict = response.json()
     return Installation.Installation(None, headers, response_dict, True)
 
-GithubIntegration.get_org_installation = get_org_installation
+if not hasattr(GithubIntegration, "get_org_installation"):
+    GithubIntegration.get_org_installation = get_org_installation
 
 class RunnerToken(github.GithubObject.NonCompletableGithubObject):
     def __repr__(self):
