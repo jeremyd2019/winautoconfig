@@ -36,13 +36,13 @@ C:\msys64\usr\bin\sed.exe -i -e 's/^^\(SigLevel\s\+=\s\+Required\)\s*$/\1 Databa
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "pacman --noconfirm --overwrite '*' -Syuu"
 REM the caret is messing with CMD parsing, try it another way
 C:\msys64\usr\bin\sed.exe -i -e '/^^# \[clangarm64\]/,/^^$/ s/^^# //g' /etc/pacman.conf
-CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "pacman --noconfirm --overwrite '*' -Sy --needed base-devel git mingw-w64-clang-aarch64-toolchain procps-ng psmisc zip unzip vim etc-update"
+CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "pacman --noconfirm --overwrite '*' -Sy --needed base-devel mingw-w64-clang-aarch64-toolchain procps-ng psmisc vim etc-update"
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "pacman --noconfirm -Scc"
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "echo export EDITOR=vim >> ~/.bash_profile"
 
 curl -Lo actions-runner-arm64.zip "https://github.com/actions/runner/releases/download/v%RUNNERVERSION%/actions-runner-win-arm64-%RUNNERVERSION%.zip"
 MKDIR C:\runner
-CALL C:\msys64\msys2_shell.cmd -defterm -no-start -here -c "unzip -o actions-runner-arm64.zip -d /c/runner"
+tar -C C:\runner -xvf actions-runner-arm64.zip
 CD /D C:\runner
 CALL config.cmd --unattended --url %RUNNERREGURL% --token %RUNNERREGTOKEN% --replace --disableupdate --ephemeral --labels "%RUNNERLABELS%"
 
