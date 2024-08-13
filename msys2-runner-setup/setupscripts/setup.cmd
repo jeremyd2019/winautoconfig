@@ -6,6 +6,9 @@ CALL "%MYDIR%\vars.cmd"
 
 CALL :parsegitver
 
+REM TODO put this in Unattend.xml at some point
+sc config WSearch start= demand
+
 CD /D "%TEMP%"
 
 curl -Lo terminal-preinstall.zip https://github.com/microsoft/terminal/releases/download/v%WINTERMVERSION%/Microsoft.WindowsTerminal_%WINTERMVERSION%_8wekyb3d8bbwe.msixbundle_Windows10_PreinstallKit.zip
