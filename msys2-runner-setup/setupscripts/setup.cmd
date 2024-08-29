@@ -7,7 +7,7 @@ CALL "%MYDIR%\vars.cmd"
 CALL :parsegitver
 
 REM TODO put this in Unattend.xml at some point
-sc config WSearch start= demand
+sc config WSearch start= disabled
 
 CD /D "%TEMP%"
 
