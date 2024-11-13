@@ -28,17 +28,9 @@ IF [%MSYS2VERSION%]==[nightly] (
 curl -Lo msys2-base-x86_64.sfx.exe "%MSYS2URL%"
 "%TEMP%\msys2-base-x86_64.sfx.exe" -y -oC:\
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "true"
-REM https://github.com/msys2/msys2-autobuild/issues/62
-CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "mkdir -p /etc/pacman.d/hooks && touch /etc/pacman.d/hooks/texinfo-{install,remove}.hook"
-REM the caret is messing with CMD parsing, try it another way
-C:\msys64\usr\bin\sed.exe -i -e 's/^^\(SigLevel\s\+=\s\+Required\)\s*$/\1 DatabaseNever/' /etc/pacman.conf
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "pacman --noconfirm --overwrite '*' -Syuu && true"
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "mv -f /etc/pacman.conf.pacnew /etc/pacman.conf"
-REM the caret is messing with CMD parsing, try it another way
-C:\msys64\usr\bin\sed.exe -i -e 's/^^\(SigLevel\s\+=\s\+Required\)\s*$/\1 DatabaseNever/' /etc/pacman.conf
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "pacman --noconfirm --overwrite '*' -Syuu"
-REM the caret is messing with CMD parsing, try it another way
-C:\msys64\usr\bin\sed.exe -i -e '/^^# \[clangarm64\]/,/^^$/ s/^^# //g' /etc/pacman.conf
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "pacman --noconfirm --overwrite '*' -Sy --needed base-devel mingw-w64-clang-aarch64-toolchain procps-ng psmisc vim etc-update"
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "pacman --noconfirm -Scc"
 CALL C:\msys64\msys2_shell.cmd -defterm -no-start -c "echo export EDITOR=vim >> ~/.bash_profile"
