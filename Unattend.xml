@@ -123,26 +123,36 @@
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <Order>6</Order>
+                    <CommandLine>cmd /c mkdir &quot;%LOCALAPPDATA%\Microsoft\Windows\TaskManager&quot;</CommandLine>
+                    <Description>Make Task Manager settings dir</Description>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <Order>7</Order>
+                    <CommandLine>cmd /c COPY /Y &quot;%SystemRoot%\OEM\CustomizationFiles\taskmanager_settings.json&quot; &quot;%LOCALAPPDATA%\Microsoft\Windows\TaskManager\settings.json&quot;</CommandLine>
+                    <Description>Copy Task Manager settings</Description>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <Order>8</Order>
                     <Description>Install sshd</Description>
                     <CommandLine>DISM /online /Add-Capability /CapabilityName:OpenSSH.Server~~~~0.0.1.0</CommandLine>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
-                    <Order>7</Order>
+                    <Order>9</Order>
                     <Description>Enable sshd</Description>
                     <CommandLine>sc config sshd start= auto</CommandLine>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
-                    <Order>8</Order>
+                    <Order>10</Order>
                     <Description>Start sshd</Description>
                     <CommandLine>sc start sshd</CommandLine>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
-                    <Order>9</Order>
+                    <Order>11</Order>
                     <Description>Ensure apps are installed</Description>
                     <CommandLine>powershell -ExecutionPolicy Bypass -Command &quot;Get-AppXPackage | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register &quot;&quot;&quot;&quot;$($_.InstallLocation)\AppXManifest.xml&quot;&quot;&quot;&quot;}&quot;</CommandLine>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
-                    <Order>10</Order>
+                    <Order>12</Order>
                     <Description>Run external setup script(s)</Description>
                     <CommandLine>CMD /C &quot;%SystemRoot%\OEM\CustomizationFiles\call_setup.cmd&quot;</CommandLine>
                 </SynchronousCommand>
