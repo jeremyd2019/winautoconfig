@@ -39,7 +39,7 @@ curl -Lo actions-runner-arm64.zip "https://github.com/actions/runner/releases/do
 MKDIR C:\runner
 tar -C C:\runner -xvf actions-runner-arm64.zip
 CD /D C:\runner
-CALL config.cmd --unattended --url %RUNNERREGURL% --token %RUNNERREGTOKEN% --replace --disableupdate --ephemeral --labels "%RUNNERLABELS%"
+CALL config.cmd --unattended --url %RUNNERREGURL% --token %RUNNERREGTOKEN% --replace --labels "%RUNNERLABELS%" --runnergroup "%RUNNERGROUP%"
 
 COPY /Y "%MYDIR%\shell.cmd" "%USERPROFILE%\shell.cmd"
 COPY /Y "%MYDIR%\msys2.cmd" "%USERPROFILE%\msys2.cmd"
