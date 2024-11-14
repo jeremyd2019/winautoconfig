@@ -29,31 +29,36 @@
                 </RunSynchronousCommand>
                 <RunSynchronousCommand wcm:action="add">
                     <Order>2</Order>
+                    <Description>Disable Windows Search</Description>
+                    <Path>sc config WSearch start= disabled</Path>
+                </RunSynchronousCommand>
+                <RunSynchronousCommand wcm:action="add">
+                    <Order>3</Order>
                     <Path>powercfg -h off</Path>
                     <Description>Disable hibernation</Description>
                 </RunSynchronousCommand>
                 <RunSynchronousCommand wcm:action="add">
-                    <Order>3</Order>
+                    <Order>4</Order>
                     <Path>reg add &quot;HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power&quot; /v HiberbootEnabled /t REG_DWORD /d 0 /f</Path>
                     <Description>Turn off Fast Startup</Description>
                 </RunSynchronousCommand>
                 <RunSynchronousCommand wcm:action="add">
-                    <Order>4</Order>
+                    <Order>5</Order>
                     <Path>powercfg /change standby-timeout-ac 0</Path>
                     <Description>Disable sleep timeout</Description>
                 </RunSynchronousCommand>
                 <RunSynchronousCommand wcm:action="add">
-                    <Order>5</Order>
+                    <Order>6</Order>
                     <Description>Per-User Shell</Description>
                     <Path>reg add &quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\IniFileMapping\system.ini\boot&quot; /v Shell /t REG_SZ /d &quot;USR:Microsoft\Windows NT\CurrentVersion\Winlogon&quot; /f</Path>
                 </RunSynchronousCommand>
                 <RunSynchronousCommand wcm:action="add">
-                    <Order>6</Order>
+                    <Order>7</Order>
                     <Description>Import Machine Policy</Description>
                     <Path>cmd /S /C &quot;CD /D &quot;%SystemRoot%\System32\GroupPolicy\&quot;&amp;MKDIR Machine&amp;COPY /Y &quot;%SystemRoot%\OEM\CustomizationFiles\GPT.INI&quot; GPT.INI&amp;COPY /Y &quot;%SystemRoot%\OEM\CustomizationFiles\reg.pol&quot; Machine\Registry.pol&quot;</Path>
                 </RunSynchronousCommand>
                 <RunSynchronousCommand wcm:action="add">
-                    <Order>7</Order>
+                    <Order>8</Order>
                     <Description>Set default net metered</Description>
                     <Path>CMD /S /C &quot;FOR %i IN (Default Ethernet WiFi) DO reg add &quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\DefaultMediaCost&quot; /v %i /t REG_DWORD /d 2 /f&quot;</Path>
                 </RunSynchronousCommand>
