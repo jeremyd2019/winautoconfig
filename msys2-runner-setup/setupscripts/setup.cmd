@@ -89,6 +89,6 @@ GOTO :eof
 
 :getbuild
 SETLOCAL
-FOR /F "tokens=6 delims=[]. " %%I IN ('ver') DO SET BUILD=%%I
+FOR /F "tokens=6 delims=[]. " %%i IN ('ver') DO SET BUILD=%%i
 ENDLOCAL & SET BUILD=%BUILD%
 GOTO :eof
