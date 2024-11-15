@@ -73,6 +73,10 @@ GOTO :eof
 :installterminal
 SETLOCAL EnableDelayedExpansion
 
+REM Windows 11 24H2 doesn't like the 32-bit arm Xaml package
+CALL :getbuild
+IF %BUILD% GEQ 26100 DEL term\*_arm_*.appx
+
 FOR %%i IN (term\*.msixbundle) DO SET MSIX=%%i
 FOR %%i IN (term\*_License1.xml) DO SET LIC=%%i
 SET DEPS=
@@ -83,3 +87,8 @@ DISM /Online /Add-ProvisionedAppxPackage /PackagePath:%MSIX% /LicensePath:%LIC% 
 ENDLOCAL
 GOTO :eof
 
+:getbuild
+SETLOCAL
+FOR /F "tokens=6 delims=[]. " %%I IN ('ver') DO SET BUILD=%%I
+ENDLOCAL & SET BUILD=%BUILD%
+GOTO :eof
