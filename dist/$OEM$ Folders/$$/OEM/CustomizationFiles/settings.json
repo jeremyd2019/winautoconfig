@@ -144,16 +144,6 @@
                 "hidden": false
             },
             {
-                // Make changes here to the MinGW-w64 Clang32 profile.
-                "guid": "{69fa4083-9e0a-417f-8119-e638563ae2f8}",
-                "name": "MinGW-w64 i686 Clang32 Shell",
-                //"commandline": "cmd.exe /A /Q /C \"C:/msys32/msys2_shell.cmd -clang32 -defterm -no-start\"",
-                "commandline": "C:/msys32/usr/bin/env MSYSTEM=CLANG32 /usr/bin/bash --login",
-                "closeOnExit": "always",
-                "icon": "C:/msys32/clang32.ico",
-                "hidden": false
-            },
-            {
                 // Make changes here to the MinGW-w64 ClangArm64 profile.
                 "guid": "{6a8122bb-a4a4-4ebc-94aa-49c273eef77c}",
                 "name": "MinGW-w64 i686 ClangArm64 Shell",
@@ -211,16 +201,6 @@
                 "commandline": "C:/msys64/usr/bin/env MSYSTEM=CLANG64 /usr/bin/bash --login",
                 "closeOnExit": "always",
                 "icon": "C:/msys64/clang64.ico",
-                "hidden": false
-            },
-            {
-                // Make changes here to the MinGW-w64 Clang32 profile.
-                "guid": "{5ea7f8d0-7d1e-44e9-b0db-419444deaf22}",
-                "name": "MinGW-w64 Clang32 Shell",
-                //"commandline": "cmd.exe /A /Q /C \"C:/msys64/msys2_shell.cmd -clang32 -defterm -no-start\"",
-                "commandline": "C:/msys64/usr/bin/env MSYSTEM=CLANG32 /usr/bin/bash --login",
-                "closeOnExit": "always",
-                "icon": "C:/msys64/clang32.ico",
                 "hidden": false
             },
             {
