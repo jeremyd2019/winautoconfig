@@ -1,0 +1,1 @@
+c:\msys64\msys2_shell.cmd -defterm -no-start -msys2 -c 'pacman -Qq > $RUNNER_TEMP/_original_pkglist'

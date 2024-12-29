@@ -44,6 +44,9 @@ CALL config.cmd --unattended --url %RUNNERREGURL% --token %RUNNERREGTOKEN% --rep
 COPY /Y "%MYDIR%\shell.cmd" "%USERPROFILE%\shell.cmd"
 COPY /Y "%MYDIR%\msys2.cmd" "%USERPROFILE%\msys2.cmd"
 COPY /Y "%MYDIR%\wkill.sh" "C:\msys64\home\%USERNAME%\wkill.sh"
+COPY /Y "%MYDIR%\runner.env" "C:\runner\.env"
+COPY /Y "%MYDIR%\runnerpre.ps1" "C:\"
+COPY /Y "%MYDIR%\runnerpost.ps1" "C:\"
 
 REG ADD "HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon" /v Shell /t REG_SZ /d "%USERPROFILE%\shell.cmd" /f
 
