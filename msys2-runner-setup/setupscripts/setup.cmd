@@ -16,7 +16,7 @@ MKDIR term
 tar -C term -xvf terminal-preinstall.zip
 CALL :installterminal
 
-curl -Lo git64.exe "https://github.com/git-for-windows/git/releases/download/%GITTAGVERSION%/Git-%GITVERSION%-64-bit.exe"
+curl -Lo git64.exe "https://github.com/git-for-windows/git/releases/download/%GITTAGVERSION%/Git-%GITVERSION%-arm64.exe"
 START /wait git64.exe /VERYSILENT /NORESTART /NOCANCEL /SP- /CLOSEAPPLICATIONS /RESTARTAPPLICATIONS /LOADINF="%MYDIR%\git64.inf"
 
 SET MSYS2URL=https://github.com/msys2/msys2-installer/releases/download
