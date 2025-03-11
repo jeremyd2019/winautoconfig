@@ -72,7 +72,10 @@ def get_self_hosted_runner_registration_token(self):
     headers, data = self._requester.requestJsonAndCheck(
         "POST", f"{self.url}/actions/runners/registration-token"
     )
-    return RunnerToken(None, headers, data, True)
+    if hasattr(RunnerToken, "_completeIfNeeded"):
+        return RunnerToken(None, headers, data, completed=True)
+    else:
+        return RunnerToken(None, headers, data)
 
 def get_self_hosted_runner_remove_token(self):
     """
@@ -82,7 +85,10 @@ def get_self_hosted_runner_remove_token(self):
     headers, data = self._requester.requestJsonAndCheck(
         "POST", f"{self.url}/actions/runners/remove-token"
     )
-    return RunnerToken(None, headers, data, True)
+    if hasattr(RunnerToken, "_completeIfNeeded"):
+        return RunnerToken(None, headers, data, completed=True)
+    else:
+        return RunnerToken(None, headers, data)
 
 github.Organization.Organization.get_self_hosted_runner_registration_token = get_self_hosted_runner_registration_token
 github.Organization.Organization.get_self_hosted_runner_remove_token = get_self_hosted_runner_remove_token
